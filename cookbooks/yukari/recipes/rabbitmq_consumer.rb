@@ -78,9 +78,14 @@ template "imgunion" do
   })
 end
 
+service "yi-imgunion" do
+  action [:start, :enable]
+end
 
 service "yi-imgcut" do
   action [:start, :enable]
 end
 
-
+service "yi-apn" do
+  action [:start, :enable]
+end
