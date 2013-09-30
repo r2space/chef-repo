@@ -6,3 +6,4 @@ validation_client_name   'chef-validator'
 validation_key           '/etc/chef-server/chef-validator.pem'
 chef_server_url          'https://chef.dreamarts.co.jp:443'
 syntax_check_cache_path  '/opt/chef-repo/.chef/syntax_check_cache'
+cookbook_path            ["/opt/chef-repo/cookbooks"]

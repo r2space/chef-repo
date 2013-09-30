@@ -13,14 +13,12 @@ if {"$server_ip" == "" || "$node_name" == "" || "$sshkey_file" == "" || "$sshkey
 
 spawn ssh $server_ip -i $sshkey_file
 
-expect "Enter passphrase for key" { 
-            send "$sshkey_password\r\n" 
-        }
-       "Are you sure you want to continue connecting (yes/no)" {
-            send "yes\r\n"
-            expect "Enter passphrase for key"
-            send "$sshkey_password\r\n"
-        }
+expect "Enter passphrase for key" { send "$sshkey_password\r\n" }
+#       "Are you sure you want to continue connecting (yes/no)" {
+#            send "yes\r\n"
+#            expect "Enter passphrase for key"
+#            send "$sshkey_password\r\n"
+#        }
 
 # update
 expect "root*\]#"
