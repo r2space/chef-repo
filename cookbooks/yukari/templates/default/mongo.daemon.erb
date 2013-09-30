@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# mongod - Startup script for mongod
+
+# chkconfig: 35 85 15
+# description: Mongo is a scalable, document-oriented database.
+# processname: mongod
+# config: /etc/mongod.conf
+# pidfile: /var/run/mongo/mongod.pid
+
+. /etc/rc.d/init.d/functions
+TYPE="<%= @type %>"
+MONGO_ROOT="<%= @dir_root %>"
+CONFIGFILE="<%= @conf_file %>"
+OPTIONS=" -f $CONFIGFILE"
+SYSCONFIG="/etc/sysconfig/mongod"
+
+DBPATH=`awk -F= '/^dbpath[[:blank:]]*=[[:blank:]]*/{print $2}' "$CONFIGFILE"`
+PIDFILE=`awk -F= '/^pidfilepath[[:blank:]]*=[[:blank:]]*/{print $2}' "$CONFIGFILE"`
+SYSLOCK="/var/lock/subsys/<%= @type %>"
+MONGO_BIN="${MONGO_ROOT}/bin/<%= @bin %>"
+
+MONGO_USER=root
+MONGO_GROUP=root
+
+# Handle NUMA access to CPUs (SERVER-3574)
+# This verifies the existence of numactl as well as testing that the command works
+NUMACTL_ARGS="--interleave=all"
+if which numactl >/dev/null 2>/dev/null && numactl $NUMACTL_ARGS ls / >/dev/null 2>/dev/null
+then
+    NUMACTL="numactl $NUMACTL_ARGS"
+else
+    NUMACTL=""
+fi
+
+start()
+{
+  echo -n $"Starting ${TYPE}: "
+  daemon --user "$MONGO_USER" $NUMACTL $MONGO_BIN $OPTIONS
+  RETVAL=$?
+  echo
+  [ $RETVAL -eq 0 ] && touch $SYSLOCK
+}
+
+stop()
+{
+  echo -n $"Stopping ${TYPE}: "
+  killproc -p "$PIDFILE" -d 300 $MONGO_BIN
+  RETVAL=$?
+  echo
+  [ $RETVAL -eq 0 ] && rm -f $SYSLOCK
+}
+
+restart () {
+	stop
+	start
+}
+
+ulimit -n 12000
+RETVAL=0
+
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  restart|reload|force-reload)
+    restart
+    ;;
+  condrestart)
+    [ -f $SYSLOCK ] && restart || :
+    ;;
+  status)
+    status $MONGO_BIN
+    RETVAL=$?
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|status|restart|reload|force-reload|condrestart}"
+    RETVAL=1
+esac
+
+exit $RETVAL

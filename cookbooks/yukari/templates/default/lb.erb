@@ -1,0 +1,14 @@
+upstream node {
+    <% @hosts.each do |host| %>
+    server <%= host['name'] %>;
+    <% end %>
+}
+
+server {
+    listen       80;
+    server_name  localhost;
+
+    location / {
+        proxy_pass http://node;
+    }
+}
