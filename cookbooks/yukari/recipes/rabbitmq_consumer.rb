@@ -78,3 +78,9 @@ template "imgunion" do
   })
 end
 
+
+service "yi-imgcut" do
+  action [:start, :enable]
+end
+
+
