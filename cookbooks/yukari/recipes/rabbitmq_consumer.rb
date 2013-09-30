@@ -42,11 +42,11 @@ git "/opt/yukari/SmartTools" do
   action :sync
 end
 
-#execute "mvn package" do
-#  cwd "/opt/yukari/SmartTools"
-#  environment ({'MAVEN_OPTS' => '-Xmx512m -Xms128m -Xss2m'})
-#  command "/opt/apache-maven-3.1.0/bin/mvn package"
-#end
+execute "mvn package" do
+  cwd "/opt/yukari/SmartTools"
+  environment ({'MAVEN_OPTS' => '-Xmx512m -Xms128m -Xss2m'})
+  command "/opt/apache-maven-3.1.0/bin/mvn package"
+end
 
 template "apn" do
   path "/etc/rc.d/init.d/yi-apn"
