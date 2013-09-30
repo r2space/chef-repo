@@ -7,7 +7,7 @@ default['host']['chef'] = {"name" => "chef", "domain" => "chef.dreamarts.co.jp",
 default['host']['all'].push(default['host']['chef'])
 
 # Load Balancer
-default['host']['lb'] = {"name" => "zabbix", "domain" => "lb.dreamarts.co.jp", "ip" => "222.158.197.122"}
+default['host']['lb'] = {"name" => "lb", "domain" => "lb.dreamarts.co.jp", "ip" => "222.158.197.122"}
 default['host']['all'].push(default['host']['lb'])
 
 # zabbix
