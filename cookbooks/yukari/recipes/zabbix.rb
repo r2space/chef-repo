@@ -7,7 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "yum::epel"
 include_recipe "database::mysql"
 
 # install

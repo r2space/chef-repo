@@ -8,6 +8,7 @@
   },
   "chef_type": "role",
   "run_list": [
+    "recipe[yukari::init]",
     "recipe[yukari::zabbix_agent]"
   ],
   "env_run_lists": {

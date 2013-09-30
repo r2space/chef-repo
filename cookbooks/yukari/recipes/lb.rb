@@ -7,8 +7,6 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "yum::epel"
-
 #### nginx ####
 template "nginx.repo" do
   path "/etc/yum.repos.d/nginx.repo"

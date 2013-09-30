@@ -10,6 +10,15 @@
 # Server Init
 #include_recipe "yukari::init"
 
+#### nginx ####
+template "nginx.repo" do
+      path "/etc/yum.repos.d/nginx.repo"
+        source "nginx.repo.erb"
+end
+yum_package "nginx" do
+      action :install
+end
+
 # Install SmartCore
 directory "/opt/yukari/SmartCore" do
   recursive true

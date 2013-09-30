@@ -6,7 +6,6 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-include_recipe "yum::epel"
 
 # install
 yum_package "zabbix20-agent" do

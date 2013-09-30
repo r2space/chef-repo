@@ -23,16 +23,6 @@ yum_package "varnish" do
   action :install
 end
 
-#### nginx ####
-template "nginx.repo" do
-  path "/etc/yum.repos.d/nginx.repo"
-  source "nginx.repo.erb"
-end
-
-yum_package "nginx" do
-  action :install
-end
-
 #### nodejs ####
 remote_file "/tmp/node-v0.10.18.tgz" do
   source "http://nodejs.org/dist/v0.10.18/node-v0.10.18-linux-x64.tar.gz"
