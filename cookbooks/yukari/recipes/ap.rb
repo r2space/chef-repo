@@ -44,11 +44,11 @@ bash "npm install " do
 end
 
 # Install forever
-#bash "install forever" do
-#  cwd "/tmp"
-#  code <<-EOH
-#  npm install forever -g
-#  EOH
-#end
+bash "install forever" do
+  cwd "/tmp"
+  code <<-EOH
+  npm install forever -g
+  EOH
+end
 
 include_recipe "yukari::ap-restart"
