@@ -30,6 +30,12 @@ directory "/opt/yukari/SmartTools" do
   recursive true
   action :create
 end
+
+#### git ####
+yum_package "git" do
+  action :install
+end
+
 git "/opt/yukari/SmartTools" do
   repository "https://github.com/r2space/SmartTools.git"
   reference "master"
