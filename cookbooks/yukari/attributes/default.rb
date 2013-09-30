@@ -7,23 +7,35 @@ default['host']['chef'] = {"name" => "chef", "domain" => "chef.dreamarts.co.jp",
 default['host']['all'].push(default['host']['chef'])
 
 # zabbix
-default['host']['zabbix'] = {"name" => "zabbix", "domain" => "zabbix.dreamarts.co.jp", "ip" => "175.184.44.111"}
+default['host']['zabbix'] = {"name" => "zabbix", "domain" => "zabbix.dreamarts.co.jp", "ip" => "222.158.197.155"}
 default['host']['all'].push(default['host']['zabbix'])
 
 # ap(ap, mongos)
 default['host']['aps'] = [
-  {"name" => "ap1", "domain" => "ap1.dreamarts.co.jp", "ip" => "175.184.44.139"},
-  {"name" => "ap2", "domain" => "ap2.dreamarts.co.jp", "ip" => "175.184.44.111"}
+  {"name" => "ap1", "domain" => "ap1.dreamarts.co.jp", "ip" => "175.184.47.77"},
+  {"name" => "ap2", "domain" => "ap2.dreamarts.co.jp", "ip" => "175.184.20.40"}
 ]
 default['host']['all'].concat(default['host']['aps'])
+# rabbitMQ
+default['host']['mqs'] = [
+  {"name" => "mq1", "domain" => "mq1.dreamarts.co.jp", "ip" => "222.158.199.212"},
+  {"name" => "mq2", "domain" => "mq2.dreamarts.co.jp", "ip" => "175.184.20.42"}
+]
+default['host']['all'].concat(default['host']['mqs'])
 # dbs(mongod, mongoconfig)
 default['host']['dbs'] = [ 
-  {"name" => "db1", "domain" => "db2.dreamarts.co.jp", "ip" => "175.184.47.77"},
-  {"name" => "db2", "domain" => "db1.dreamarts.co.jp", "ip" => "175.184.44.139"},
-  {"name" => "db3", "domain" => "db3.dreamarts.co.jp", "ip" => "175.184.44.111"}
+  {"name" => "db1", "domain" => "db1.dreamarts.co.jp", "ip" => "175.184.46.54"},
+  {"name" => "db2", "domain" => "db2.dreamarts.co.jp", "ip" => "175.184.20.41"},
+  {"name" => "db3", "domain" => "db3.dreamarts.co.jp", "ip" => "175.184.45.100"}
 ]
 default['host']['all'].concat(default['host']['dbs'])
+# backup
+default['host']['backups'] = [
+  {"name" => "backup", "domain" => "backup.dreamarts.co.jp", "ip" => ""},
+]
+default['host']['all'].concat(default['host']['backups'])
 
+##################################################
 default['path']['db']['etc'] = "/etc/mongodb"
 
 #######
