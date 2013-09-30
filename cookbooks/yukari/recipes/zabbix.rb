@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: yukari-ap
+# Cookbook Name:: yukari
 # Recipe:: default
 #
 # Copyright 2013, YOUR_COMPANY_NAME

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: yukari-ap
+# Cookbook Name:: yukari
 # Recipe:: db-mongos
 #
 # Copyright 2013, YOUR_COMPANY_NAME
@@ -8,7 +8,7 @@
 #
 
 # Server Init
-#include_recipe "yukari-ap::init"
+#include_recipe "yukari::init"
 
 type="mongos"
 bin="mongos"
@@ -37,7 +37,7 @@ configdb=dbs.join(',')
 cmd_add_shards=shards.join(';')
 
 # Download mongodb
-include_recipe "yukari-ap::db-install"
+include_recipe "yukari::db-install"
 # install  mongodb
 execute "${type} install" do
   cwd "/tmp"

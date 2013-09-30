@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: yukari-ap
+# Cookbook Name:: yukari
 # Recipe:: ap
 #
 # Copyright 2013, YOUR_COMPANY_NAME
@@ -8,7 +8,7 @@
 #
 
 # Server Init
-#include_recipe "yukari-ap::init"
+#include_recipe "yukari::init"
 
 # Install SmartCore
 directory "/opt/yukari/SmartCore" do
@@ -51,4 +51,4 @@ end
 #  EOH
 #end
 
-include_recipe "yukari-ap::ap-restart"
+include_recipe "yukari::ap-restart"

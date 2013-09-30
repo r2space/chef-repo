@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: yukari-ap
+# Cookbook Name:: yukari
 # Recipe:: db-mongos
 #
 # Copyright 2013, YOUR_COMPANY_NAME
@@ -8,7 +8,7 @@
 #
 
 # Server Init
-#include_recipe "yukari-ap::init"
+#include_recipe "yukari::init"
 
 type="mongod"
 bin="mongod"
@@ -23,7 +23,7 @@ conf_dir="/etc/mongodb"
 conf_file="#{conf_dir}/#{type}.conf"
 
 # Download mongodb
-include_recipe "yukari-ap::db-install"
+include_recipe "yukari::db-install"
 # install  mongodb
 execute "${type} install" do
   cwd "/tmp"
