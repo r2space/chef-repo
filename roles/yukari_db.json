@@ -8,9 +8,10 @@
   },
   "chef_type": "role",
   "run_list": [
-    "recipe[yukari-ap::init]",
-    "recipe[yukari-ap::db-mongod]",
-    "recipe[yukari-ap::db-mongoconfig]"
+    "recipe[yukari::init]",
+    "recipe[yukari::zabbix_agent]",
+    "recipe[yukari::db-mongod]",
+    "recipe[yukari::db-mongoconfig]"
   ],
   "env_run_lists": {
   }

@@ -8,7 +8,7 @@
 #
 
 # Server Init
-include_recipe "yukari-ap::init"
+#include_recipe "yukari-ap::init"
 
 type="mongos"
 bin="mongos"

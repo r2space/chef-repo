@@ -1,5 +1,5 @@
 {
-  "name": "yukari_ap",
+  "name": "yukari_zabbix",
   "description": "",
   "json_class": "Chef::Role",
   "default_attributes": {
@@ -8,10 +8,8 @@
   },
   "chef_type": "role",
   "run_list": [
-    "recipe[yukari::init]",
     "recipe[yukari::zabbix_agent]",
-    "recipe[yukari::db-mongos]",
-    "recipe[yukari::ap]"
+    "recipe[yukari::zabbix]"
   ],
   "env_run_lists": {
   }
