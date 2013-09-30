@@ -6,6 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+require 'chef/util/file_edit'
 
 include_recipe "database::mysql"
 
