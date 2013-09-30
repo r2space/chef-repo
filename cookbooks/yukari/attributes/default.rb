@@ -25,7 +25,7 @@ default['host']['all'].push({"name" => "mongo", "domain" => "mongo.dreamarts.co.
 
 # rabbitMQ
 default['host']['mqs'] = [
-  {"name" => "mq1", "domain" => "mq1.dreamarts.co.jp", "ip" => "222.158.199.212"},
+  {"name" => "mq", "domain" => "mq.dreamarts.co.jp", "ip" => "222.158.199.212"},
   {"name" => "mq2", "domain" => "mq2.dreamarts.co.jp", "ip" => "175.184.20.42"}
 ]
 default['host']['all'].concat(default['host']['mqs'])
