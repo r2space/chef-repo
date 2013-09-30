@@ -22,8 +22,8 @@ template "nginx.config" do
   path "/etc/nginx/conf.d/default.conf"
   source "ap.nginx..erb"
 end
-service "nginx"
- action [:restart, :enable]
+service "nginx" do
+  action [:restart, :enable]
 end
 
 #### varnish ####
@@ -39,8 +39,8 @@ end
 yum_package "varnish" do
   action :install
 end
-service "varnish"
- action [:start, :enable]
+service "varnish" do
+  action [:start, :enable]
 end
 
 #### nodejs ####
