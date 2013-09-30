@@ -36,11 +36,11 @@ mysql_database "zabbix" do
   connection ({:host => "127.0.0.1", :username => "root", :password => ""})
   encoding "utf8"
   action :create
+  notifies :create, "mysql_database_user[zabbix]", :immediately
+  notifies :grant, "mysql_database_user[zabbix]", :immediately
   notifies :run, "execute[zabbix_populate_schema]", :immediately
   notifies :run, "execute[zabbix_populate_image]", :immediately
   notifies :run, "execute[zabbix_populate_data]", :immediately
-  notifies :create, "mysql_database_user[zabbix]", :immediately
-  notifies :grant, "mysql_database_user[zabbix]", :immediately
   notifies :restart, "service[zabbix-server]", :immediately
 end
 
