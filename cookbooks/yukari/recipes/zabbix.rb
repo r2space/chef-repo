@@ -27,9 +27,6 @@ end
 service "mysqld" do
   action [:start, :enable]
 end
-service "zabbix-server" do
-  action [:start, :enable]
-end
 
 # create user
 mysql_database "zabbix" do
@@ -95,4 +92,9 @@ ruby_block 'edit /etc/httpd/conf.d/zabbix.conf' do
   end
 end
 
-
+service "zabbix-server" do
+  action [:start, :enable]
+end
+service "httpd" do
+  action [:start, :enable]
+end
