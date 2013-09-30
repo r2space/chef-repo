@@ -20,6 +20,8 @@ default['host']['aps'] = [
   {"name" => "ap2", "domain" => "ap2.dreamarts.co.jp", "ip" => "175.184.20.40"}
 ]
 default['host']['all'].concat(default['host']['aps'])
+# ap host
+default['host']['all'].push = "name" => "mongo", "domain" => "mongo.dreamarts.co.jp", "ip" => "127.0.0.1"})
 
 # rabbitMQ
 default['host']['mqs'] = [
