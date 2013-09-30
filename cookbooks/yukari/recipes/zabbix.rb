@@ -6,6 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+require 'chef/util/file_edit'
 
 include_recipe "database::mysql"
 
@@ -69,6 +70,7 @@ ruby_block 'edit /etc/zabbix_server.conf' do
   block do
     rc = Chef::Util::FileEdit.new('/etc/zabbix_server.conf')
     rc.search_file_replace_line(/DBPassword=/, "DBPassword=zabbix")
+    rc.write_file
   end
 end
 

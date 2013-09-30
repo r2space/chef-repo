@@ -10,6 +10,7 @@
   "run_list": [
     "recipe[yukari::init]",
     "recipe[yukari::zabbix_agent]",
+    "recipe[yukari::db-mongos]",
     "recipe[yukari::rabbitmq]",
     "recipe[yukari::rabbitmq_consumer]"
   ],
