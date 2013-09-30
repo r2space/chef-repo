@@ -70,6 +70,7 @@ ruby_block 'edit /etc/zabbix_server.conf' do
   block do
     rc = Chef::Util::FileEdit.new('/etc/zabbix_server.conf')
     rc.search_file_replace_line(/DBPassword=/, "DBPassword=zabbix")
+    rc.write_file
   end
 end
 
