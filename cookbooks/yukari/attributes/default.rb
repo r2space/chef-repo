@@ -38,7 +38,7 @@ default['host']['all'].concat(default['host']['dbs'])
 
 # backup
 default['host']['backups'] = [
-  {"name" => "backup", "domain" => "backup.dreamarts.co.jp", "ip" => ""},
+  {"name" => "backup", "domain" => "backup.dreamarts.co.jp", "ip" => "175.184.47.166"},
 ]
 default['host']['all'].concat(default['host']['backups'])
 

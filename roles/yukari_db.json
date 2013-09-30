@@ -1,0 +1,17 @@
+{
+  "name": "yukari_db",
+  "description": "",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[yukari-ap::init]",
+    "recipe[yukari-ap::db-mongod]",
+    "recipe[yukari-ap::db-mongoconfig]"
+  ],
+  "env_run_lists": {
+  }
+}
