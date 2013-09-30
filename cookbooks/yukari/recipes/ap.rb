@@ -39,6 +39,13 @@ end
 yum_package "varnish" do
   action :install
 end
+template "varnish.vcl" do
+  path "/etc/varnish/default.vcl"
+  source "varnish.vcl.erb"
+  variables({
+    :host => Chef::Config[:node_name]
+  })
+end
 service "varnish" do
   action [:start, :enable]
 end
