@@ -1,4 +1,7 @@
 #!/usr/bin/expect -f
+
+source _common.exp
+
 set timeout 3600 
 
 set server_ip [lindex $argv 0]
@@ -11,14 +14,9 @@ if {"$server_ip" == "" || "$node_name" == "" || "$sshkey_file" == "" || "$sshkey
   exit;
 } 
 
+# login server by root user
 spawn ssh $server_ip -i $sshkey_file
-
-expect "Enter passphrase for key" { send "$sshkey_password\r\n" }
-#       "Are you sure you want to continue connecting (yes/no)" {
-#            send "yes\r\n"
-#            expect "Enter passphrase for key"
-#            send "$sshkey_password\r\n"
-#        }
+auto_password $sshkey_password
 
 expect "root*\]#"
 send "cd /tmp/ \r"

@@ -1,0 +1,18 @@
+#!/usr/bin/expect -f
+#***********************************************************
+# Expect common function
+#
+#***********************************************************
+
+# auto input password
+proc auto_password { password } {
+    expect {
+       "Enter passphrase for key" { send "$password\r\n" }
+       "password:" { send "$password\r\n" }
+       "Are you sure you want to continue connecting (yes/no)" {
+            send "yes\r\n"
+            auto_password $password
+        }
+    }
+}
+

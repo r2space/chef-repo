@@ -7,11 +7,11 @@ runlist="$5"
 
 knife node delete $node_name
 # Init client
-./_create_client.sh $server_ip $node_name $sshkey_file $sshkey_password
+./create_client.exp $server_ip $node_name $sshkey_file $sshkey_password
 
 # Add node role
 knife node run_list add $node_name "$runlist"
 
 # Update client
-./_update_client.sh $server_ip $node_name $sshkey_file $sshkey_password
+./update_client.exp $server_ip $node_name $sshkey_file $sshkey_password
 
