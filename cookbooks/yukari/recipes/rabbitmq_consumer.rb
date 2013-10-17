@@ -17,7 +17,7 @@ yum_package "jakarta-commons-daemon-jsvc" do
 end
 
 remote_file "/tmp/apache-maven-3.1.0-bin.tar.gz" do
-  source "http://ftp.yz.yamagata-u.ac.jp/pub/network/apache/maven/maven-3/3.1.0/binaries/apache-maven-3.1.0-bin.tar.gz"
+  source "http://archive.apache.org/dist/maven/maven-3/3.1.0/binaries/apache-maven-3.1.0-bin.tar.gz"
 end
 
 execute "install maven" do

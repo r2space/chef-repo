@@ -28,7 +28,7 @@ end
 
 #### varnish ####
 remote_file "/root/varnish-release-3.0-1.el6.noarch.rpm" do
-  source "http://repo.varnish-cache.org/redhat/varnish-3.0/el6/noarch/varnish-release-3.0-1.el6.noarch.rpm"
+  source "http://repo.varnish-cache.org/redhat/varnish-3.0/el6/noarch/varnish-release/varnish-release-3.0-1.el6.noarch.rpm"
 end
 
 rpm_package "/root/varnish-release-3.0-1.el6.noarch.rpm" do
